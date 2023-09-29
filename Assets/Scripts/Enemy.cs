@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         _target = target;
     }
 
-    public void Flip()
+    private void Flip()
     {
         if (transform.position.x <= _target.position.x)
         {

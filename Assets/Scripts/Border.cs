@@ -13,7 +13,6 @@ public class Border : MonoBehaviour
     private void Die(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
-        enemy.Flip();
         enemy.gameObject.SetActive(false);
     }
 }
