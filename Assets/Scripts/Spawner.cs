@@ -1,24 +1,23 @@
 using System.Collections;
 using UnityEngine;
 
-public class Spawner : ObjectPool
+public class Spawner : EnemyPool
 {
     [SerializeField] private Transform _target;
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private float _speed;
     [SerializeField] private float _delay;
 
     private bool isWork = true;
 
     private void Start()
     {
-        Initialize(_enemy.gameObject);
+        Initialize(_enemy);
         StartCoroutine(SpawnEnemy());
     }
 
-    private void SetEnemy(GameObject enemy, Vector3 spawnPoint)
+    private void SetEnemy(Enemy enemy, Vector3 spawnPoint)
     {
-        enemy.SetActive(true);
+        enemy.gameObject.SetActive(true);
         enemy.transform.position = spawnPoint;
     }
 
@@ -28,12 +27,11 @@ public class Spawner : ObjectPool
 
         while(isWork)
         {
-            if (TryGetObject(out GameObject enemyPrefab))
+            if (TryGetEnemy(out Enemy enemyPrefab))
             {
                 SetEnemy(enemyPrefab, transform.position);
-
-                Enemy enemy = enemyPrefab.GetComponent<Enemy>();
-                enemy.SetDirection(_target);
+                _enemy = enemyPrefab;
+                _enemy.GetTarget(_target);
 
                 yield return waitForSeconds;
             }

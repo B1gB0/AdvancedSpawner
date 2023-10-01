@@ -1,29 +1,27 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(EnemyAnimator))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
-    public readonly int Run = Animator.StringToHash(nameof(Run));
-
-    private Animator _animator;
+    private EnemyAnimator _enemyAnimator;
     private Transform _target;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _enemyAnimator = GetComponent<EnemyAnimator>();
     }
 
     private void Update()
     {
-        _animator.Play(Run);
+        _enemyAnimator.Move(_speed);
         transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
 
         Flip();
     }
 
-    public void SetDirection(Transform target)
+    public void GetTarget(Transform target)
     {
         _target = target;
     }
