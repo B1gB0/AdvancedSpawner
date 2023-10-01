@@ -273,7 +273,6 @@ MonoBehaviour:
   _capacity: 1
   _target: {fileID: 1297232903}
   _enemy: {fileID: -4415260609944560072, guid: 57ca6f9b59c04f64485b7cb5447c502b, type: 3}
-  _speed: 5
   _delay: 2
 --- !u!4 &291136766
 Transform:
@@ -858,7 +857,6 @@ MonoBehaviour:
   _capacity: 1
   _target: {fileID: 2137752616}
   _enemy: {fileID: 2128719662966688634, guid: eebd8c0a8dc05dd45918be0dcdd434fe, type: 3}
-  _speed: 5
   _delay: 2
 --- !u!4 &888537514
 Transform:
@@ -2354,7 +2352,6 @@ MonoBehaviour:
   _capacity: 1
   _target: {fileID: 1504757019}
   _enemy: {fileID: -4415260609944560072, guid: 57ca6f9b59c04f64485b7cb5447c502b, type: 3}
-  _speed: 5
   _delay: 2
 --- !u!1 &1836769322
 GameObject:
